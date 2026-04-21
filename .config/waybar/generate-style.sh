@@ -1,3 +1,34 @@
+#!/bin/sh
+
+# ============================================================== #
+#                                                                #
+#      Waybar Styling                                            #
+#      by E. Sauthier                                            #
+#      inspired by the original config files                     #
+#                                                                #
+# ============================================================== #
+
+###########################################
+###            Variables                ###
+###########################################
+
+TEXTFG="#ffffff"
+TRANSPARENT="rgba(0,0,0,0)"
+BG=$TRANSPARENT
+MODULESBG="#10105f"
+BUTTONHOVER="rgba(255,255,255,0.5)"
+BUTTOMACTIVE="rgba(255,255,255,0.8)"
+FOCUSED="#2b2dab"
+ACTIVE="#4b4deb"
+URGENT="#f53c3c"
+WORKSPACEBUTTON="#ffffff"
+TEXTACTIVEBUTTON="#2a5c45"
+
+###########################################
+###        The Configuration            ###
+###########################################
+
+cat >./style.css <<EOF
 
 
 /* ============================================================= ##
@@ -19,24 +50,24 @@
 }
 
 window#waybar {
-    background-color: rgba(0,0,0,0);
-    border-bottom: 3px solid rgba(0,0,0,0);
-    color: #ffffff;
+    background-color: $BG;
+    border-bottom: 3px solid $TRANSPARENT;
+    color: $TEXTFG;
     transition-property: background-color;
     transition-duration: .5s;
 }
 
 .modules-right {
 	border-radius: 10px;
-  background-color: #10105f;
+  background-color: $MODULESBG;
 }
 
 .modules-left {
-  background-color: #10105f;
+  background-color: $MODULESBG;
 }
 
 .modules-center {
-  background-color: #10105f;
+  background-color: $MODULESBG;
 }
 
 button {
@@ -48,13 +79,13 @@ button {
 }
 
 button:hover {
-	background: rgba(255,255,255,0.5);
+	background: $BUTTONHOVER;
 }
 
 #workspaces button {
     padding: 0 5px;
-    background-color: rgba(0,0,0,0);
-    color: #ffffff;
+    background-color: $BG;
+    color: $WORKSPACEBUTTON;
 }
 
 #workspaces button:hover {
@@ -63,21 +94,21 @@ button:hover {
 
 #workspaces button.focused {
     background: rgba(255,255,255,0.8);
-    color: #2b2dab;
+    color: $FOCUSED;
 }
 
 #workspaces button.active {
     background: rgba(255,255,255,0.8);
-    color: #4b4deb;
+    color: $ACTIVE;
 }
 
 #workspaces button.urgent {
-    color: #f53c3c;
+    color: $URGENT;
 }
 
 #mode {
-    background-color: rgba(0,0,0,0);
-    box-shadow: inset 0 -3px #ffffff;
+    background-color: $BG;
+    box-shadow: inset 0 -3px $TEXTFG;
 }
 
 #clock,
@@ -115,31 +146,31 @@ button:hover {
 }
 
 #clock {
-    background-color: rgba(0,0,0,0);
+    background-color: $BG;
 }
 
 #battery {
-    background-color: rgba(0,0,0,0);
-    color: #ffffff;
+    background-color: $BG;
+    color: $TEXTFG;
 }
 
 #battery.charging, #battery.plugged {
-    color: #ffffff;
-    background-color: rgba(0,0,0,0);
+    color: $TEXTFG;
+    background-color: $BG;
 }
 
 @keyframes blink {
     to {
-        background-color: #ffffff;
-        color: rgba(0,0,0,0);
+        background-color: $TEXTFG;
+        color: $BG;
     }
 }
 
 
 /* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
+    background-color: $URGENT;
+    color: $TEXTFG;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: steps(12);
@@ -152,94 +183,95 @@ button:hover {
 }
 
 #power-profiles-daemon.performance {
-    background-color: rgba(0,0,0,0);
-    color: #ffffff;
+    background-color: $BG;
+    color: $TEXTFG;
 }
 
 #power-profiles-daemon.balanced {
-    background-color: rgba(0,0,0,0);
-    color: #ffffff;
+    background-color: $BG;
+    color: $TEXTFG;
 }
 
 #power-profiles-daemon.power-saver {
-    background-color: #4b4deb;
-    color: rgba(0,0,0,0);
+    background-color: $ACTIVE;
+    color: $BG;
 }
 
 label:focus {
-    background-color: rgba(0,0,0,0);
+    background-color: $BG;
 }
 
 #cpu {
-    background-color: rgba(0,0,0,0);
-    color: #ffffff;
+    background-color: $BG;
+    color: $TEXTFG;
 }
 
 #memory {
-    background-color: rgba(0,0,0,0);
+    background-color: $BG;
 }
 
 #disk {
-    background-color: rgba(0,0,0,0);
+    background-color: $BG;
 }
 
 
 #backlight {
-    background-color: rgba(0,0,0,0);
+    background-color: $BG;
 }
 
 #network {
-    background-color: rgba(0,0,0,0);
-    color : #ffffff;
+    background-color: $BG;
+    color : $TEXTFG;
 }
 
 #network.disconnected {
-    color: #f53c3c;
+    color: $URGENT;
 }
 
 #pulseaudio {
-    background-color: rgba(0,0,0,0);
-    color: #ffffff;
+    background-color: $BG;
+    color: $TEXTFG;
 }
 
 #pulseaudio.muted {
-    background-color: rgba(0,0,0,0);
-    color: #f53c3c;
+    background-color: $BG;
+    color: $URGENT;
 }
 
 #wireplumber {
-    background-color: #ffffff;
-    color: rgba(0,0,0,0);
+    background-color: $TEXTFG;
+    color: $BG;
 }
 
 #wireplumber.muted {
-    background-color: #f53c3c;
+    background-color: $URGENT;
 }
 
 
 #temperature {
-    background-color: rgba(0,0,0,0);
-    color : #ffffff;
+    background-color: $BG;
+    color : $TEXTFG;
 }
 
 #temperature.critical {
-    background-color: rgba(0,0,0,0);
-    color : #f53c3c;
+    background-color: $BG;
+    color : $URGENT;
 }
 
 #idle_inhibitor {
-    background-color: rgba(0,0,0,0);
-    color: #ffffff;
+    background-color: $BG;
+    color: $TEXTFG;
     padding: 0 5px;
 }
 
 #idle_inhibitor.activated {
-    background: rgba(255,255,255,0.8);
-    color: #2a5c45;
+    background: $BUTTOMACTIVE;
+    color: $TEXTACTIVEBUTTON;
 }
 
 #custom-power {
-    background-color: rgba(0,0,0,0);
+    background-color: $BG;
 }
 
 
+EOF
