@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# ============================================== #
+#                                                #
+#      Outputs the power consumption in Watts    #
+#      Written by ChatGPT                        #
+#                                                #
+# ============================================== #
+
 # Get power in microwatts (adjust path)
 power=$(cat /sys/class/power_supply/BAT0/power_now)
 
