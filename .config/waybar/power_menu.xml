@@ -1,3 +1,7 @@
+<!--
+Power menu description
+copied from somewhere on the internet
+--> 
 <?xml version="1.0" encoding="UTF-8"?>
   <interface>
     <object class="GtkMenu" id="menu">
