@@ -152,6 +152,7 @@ button:hover {
 #battery {
     background-color: $BG;
     color: $TEXTFG;
+    padding: 10px;
 }
 
 #battery.charging, #battery.plugged {
