@@ -1,9 +1,14 @@
-# Configuration from DrReihtuas
-# Not subject to any license cause im too lazy
+# ============================================================ #
+#                                                              #
+#       Sway Config File                                       #
+#       by E. Sauthier                                         #
+#                                                              #
+# ============================================================ #
 
-#######################################
-############# Variables ###############
-#######################################
+
+###########################################
+###             Variables               ###
+###########################################
 
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
@@ -40,17 +45,16 @@ set $bar waybar
 # Night mode
 exec "gammastep -l 46.94700000:7.44500000 -t 6500:3500"
 
-#
-# On startup
-#
+###########################################
+###            On startup               ###
+###########################################
+
 workspace 1
 exec deja-dup
 
-
-
-#######################################
-############     Style     ############
-#######################################
+###########################################
+###               Style                 ###
+###########################################
 
 # gaps
 gaps inner 5px
@@ -76,9 +80,9 @@ for_window [app_id="free42"] floating enable
 
 
 
-#######################################
-######## Output configuration #########
-#######################################
+###########################################
+###        Output configuration         ###
+###########################################
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output "*" background $HOME/.config/planet.png fill
@@ -95,9 +99,9 @@ output eDP-1 resolution 1920x1200 position 0 0
 output HDMI-A-1 resolution 2560x1440 position 1920 0
 
 
-#######################################
-######### Idle configuration ##########
-#######################################
+###########################################
+###          Idle configuration         ###
+###########################################
 
 # Example configuration:
 #
@@ -110,9 +114,9 @@ exec swayidle -w \
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
-#######################################
-######### Input configuration #########
-#######################################
+###########################################
+###         Input configuration         ###
+###########################################
 
 # Example configuration:
 #
@@ -140,9 +144,9 @@ input "type:touchpad"	{
 	natural_scroll enabled
 }
 
-#######################################
-############## Key bindings ###########
-#######################################
+###########################################
+###            Key bindings             ### 
+###########################################
 
 #
 # Basics:
@@ -187,12 +191,6 @@ bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. 
 #
 # system misc
 #
-#bindsym XF86AudioMute exec amixer set Master toggle
-#bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
-#bindsym XF86AudioLowerVolume exec amixer set Master 5%-
-
-#bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-#bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
 
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
