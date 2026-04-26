@@ -1,3 +1,10 @@
+// ========================================================== // 
+//                                                            //
+//         Rofi Config File                                   // 
+//         by tony-btw (on ytb)                               // 
+//                                                            //
+// ========================================================== //
+
 configuration{
     modi: ["drun", "window", "run"];
     icon-theme: "Papirus-Dark";
@@ -7,8 +14,8 @@ configuration{
     location: 0;
     disable-history: false;
     sidebar-mode: false;
-    display-drun: " ";
-    display-run: " ";
+    display-drun: "> ";
+    display-run: "> ";
     display-window: " ";
     
     //adding vim keybindings
