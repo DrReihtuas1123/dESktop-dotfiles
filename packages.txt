@@ -5,3 +5,6 @@ firefox
 fish
 mangowm
 rofi
+swaybg
+hyprlock
+hypridle
